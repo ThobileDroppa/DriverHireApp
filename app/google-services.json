@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326390779881",
+    "project_id": "driverhireapp",
+    "storage_bucket": "driverhireapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326390779881:android:fc3ef8679a25a43cba0578",
+        "android_client_info": {
+          "package_name": "com.example.driverhireapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_1mmaRpMDSlwOtsXjff27OMn3WUk_xSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
