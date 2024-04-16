@@ -6,22 +6,20 @@ import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class DriverLogin extends AppCompatActivity {
+public class DriverRegistration extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_login);
+        setContentView(R.layout.activity_driver_registration);
 
         init();
-
-
-
-
     }
 
     private void init(){
-        mAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+
     }
 }
