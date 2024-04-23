@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -11,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DriverLogin extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+
+    private EditText email,password;
 
     private TextView signUp;
     @Override

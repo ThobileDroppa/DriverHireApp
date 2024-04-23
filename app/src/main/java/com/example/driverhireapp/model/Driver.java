@@ -1,4 +1,4 @@
-package com.example.driverhireapp;
+package com.example.driverhireapp.model;
 
 import android.widget.ImageView;
 
@@ -23,6 +23,9 @@ public class Driver implements Serializable {
     private String location;
 
     private String role;
+
+    public Driver() {
+    }
 
     public Driver(String id, String name, String surname, String phoneNumber, String email, ImageView licensePicture, int yearsOfExperience, int averageRating, String location) {
         this.id = id;
@@ -113,6 +116,22 @@ public class Driver implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", licensePicture=" + licensePicture +
+                ", yearsOfExperience=" + yearsOfExperience +
+                ", averageRating=" + averageRating +
+                ", location='" + location + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 
     public void setEmail(String email) {

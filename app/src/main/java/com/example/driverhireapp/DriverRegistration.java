@@ -11,14 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.driverhireapp.model.Driver;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -29,8 +33,6 @@ public class DriverRegistration extends AppCompatActivity {
 
     private EditText name, surname, email, password, number, location, yearsDriving;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
 
     //FirebaseStorage storage = FirebaseStorage.getInstance();
     //StorageReference storageRef = storage.getReference();
@@ -47,8 +49,10 @@ public class DriverRegistration extends AppCompatActivity {
         signUpBtn.setOnClickListener(view -> {
             String emailT = email.getText().toString().trim();
             String passT = password.getText().toString().trim();
-            //createUser(emailT,passT);
+            createUser(emailT,passT);
         });
+
+
 
 
     }
@@ -95,7 +99,26 @@ public class DriverRegistration extends AppCompatActivity {
                                 Driver driver = new Driver(user.getUid(),names,surnames,numbers,emails,Integer.parseInt(yearsOfExperience),locations,role);
                                 Log.d("","///////////////////////////////// "+ user.getUid());
 
-                                myRef.setValue(driver);
+
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                DatabaseReference myRef = database.getReference();
+                                myRef.child("Drivers").child(user.getUid()).setValue(driver);
+
+                                //startActivity();
+
+                                myRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                         Driver newValue = snapshot.getValue(Driver.class);
+
+                                         Log.d("","NEW VALUE ------------------------ "+newValue.toString());
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                                 // updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
