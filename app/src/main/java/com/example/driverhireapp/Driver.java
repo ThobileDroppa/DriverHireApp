@@ -6,11 +6,13 @@ import java.io.Serializable;
 
 public class Driver implements Serializable {
 
-    private Long id;
+    private String id;
     private String name;
     private String surname;
 
     private String phoneNumber;
+
+    private String email;
 
     private ImageView licensePicture;
 
@@ -18,25 +20,39 @@ public class Driver implements Serializable {
 
     private int averageRating;
 
-    private String province;
+    private String location;
 
-    public Driver(Long id, String name, String surname, String phoneNumber, ImageView licensePicture, int yearsOfExperience, int averageRating, String province) {
+    private String role;
+
+    public Driver(String id, String name, String surname, String phoneNumber, String email, ImageView licensePicture, int yearsOfExperience, int averageRating, String location) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
+        this.email = email;
         this.licensePicture = licensePicture;
         this.yearsOfExperience = yearsOfExperience;
         this.averageRating = averageRating;
-        this.province = province;
+        this.location = location;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
+    public Driver(String id, String name, String surname, String phoneNumber, String email, int yearsOfExperience, String location,String role) {
         this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.yearsOfExperience = yearsOfExperience;
+        this.location = location;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getName() {
@@ -87,11 +103,27 @@ public class Driver implements Serializable {
         this.averageRating = averageRating;
     }
 
-    public String getProvince() {
-        return province;
+    public String getId() {
+        return id;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
