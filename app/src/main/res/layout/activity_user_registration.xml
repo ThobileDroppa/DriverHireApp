@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="15dp"
+    tools:context=".UserRegistration">
+
+    <EditText
+        android:id="@+id/name_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="name"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/surname_user"
+        android:layout_below="@id/name_user"
+        android:hint="surname"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:id="@+id/email_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:layout_below="@+id/surname_user"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pwd_user"
+        android:layout_below="@id/email_user"
+        android:hint="password"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:text="Login"
+        android:id="@+id/login_btn_user"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pwd_user"/>
+
+</RelativeLayout>
